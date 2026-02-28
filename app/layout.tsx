@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
+import './globals.css'
 
 const geist = Geist({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -40,23 +40,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          storageKey="theme"
-          enableColorScheme
-        >
-          <div className="flex-1">
-            {children}
-          </div>
+        <div className="flex-1">
+          {children}
+        </div>
 
-          <footer className="text-center py-6 text-sm tracking-widest text-[#C8B6FF] opacity-70">
-            - Mahi Ahalawat -
-          </footer>
-        </ThemeProvider>
+        <footer className="text-center py-6 text-sm tracking-widest text-[#C8B6FF] opacity-70">
+          - Mahi Ahalawat -
+        </footer>
       </body>
     </html>
   )

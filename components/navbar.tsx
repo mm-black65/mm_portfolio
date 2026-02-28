@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { useTheme } from "next-themes"
-import { User, Mail, Linkedin, Github, Sun, Moon } from "lucide-react"
+import { User, Mail, Linkedin, Github } from "lucide-react"
 
 interface NavbarProps {
   activeSection: string
@@ -23,7 +22,6 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     setMounted(true)
@@ -38,7 +36,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <button
           onClick={() => onNavigate("about")}
@@ -54,18 +52,17 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
         </button>
 
         {/* Navigation links */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => onNavigate(item.id)}
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className={`relative px-3 py-2 font-mono text-xs tracking-wider transition-colors duration-200 ${
-                  activeSection === item.id
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-white"
-                }`}
+                className={`relative px-3 py-2 font-mono text-sm tracking-wider transition-colors duration-200 ${activeSection === item.id
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-white"
+                  }`}
               >
                 {item.label.toUpperCase()}
                 {activeSection === item.id && (
@@ -85,46 +82,30 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
 
         {/* Right side: profile icon with dropdown */}
         <div className="flex items-center gap-4">
-          {/* Theme toggle */}
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-md border border-border hover:bg-secondary transition-colors duration-200"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="w-4 h-4 text-muted-foreground" />
-              ) : (
-                <Moon className="w-4 h-4 text-muted-foreground" />
-              )}
-            </button>
-          )}
-
           {/* Mobile nav toggle */}
           <MobileNav activeSection={activeSection} onNavigate={onNavigate} />
 
           {/* Profile icon with dropdown */}
           <div className="hidden md:block relative" ref={dropdownRef}>
             <button
-  onClick={() => setDropdownOpen((prev) => !prev)}
-  className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-primary/40 transition-all duration-300"
-  aria-label="Contact menu"
->
-  <img
-    src="/images/kk.jpg"
-    alt="Mahi Ahalawat"
-    className="w-full h-full object-cover"
-  />
-</button>
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className="w-9 h-9 rounded-full overflow-hidden border border-border hover:border-primary/40 transition-all duration-300"
+              aria-label="Contact menu"
+            >
+              <img
+                src="/images/kk.jpg"
+                alt="Mahi Ahalawat"
+                className="w-full h-full object-cover"
+              />
+            </button>
 
 
             {/* Dropdown */}
             <div
-              className={`absolute right-0 top-full mt-2 w-56 rounded-lg border border-border bg-card/95 backdrop-blur-md p-3 flex flex-col gap-1 transition-all duration-200 origin-top-right ${
-                dropdownOpen
-                  ? "opacity-100 scale-100 pointer-events-auto"
-                  : "opacity-0 scale-95 pointer-events-none"
-              }`}
+              className={`absolute right-0 top-full mt-2 w-56 rounded-lg border border-border bg-card/95 backdrop-blur-md p-3 flex flex-col gap-1 transition-all duration-200 origin-top-right ${dropdownOpen
+                ? "opacity-100 scale-100 pointer-events-auto"
+                : "opacity-0 scale-95 pointer-events-none"
+                }`}
             >
               <span className="font-mono text-[10px] text-muted-foreground tracking-wider px-2 py-1">
                 CONTACT
@@ -133,7 +114,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 href="mailto:mahiahalawat112@example.com"
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
               >
-                <Mail className="w-3.5 h-3.5 text-muted-foreground" />
+                <Mail className="w-3.5 h-3.5 text-foreground dark:text-white" />
                 <span className="font-mono text-xs">Email</span>
               </a>
               <a
@@ -142,7 +123,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
               >
-                <Linkedin className="w-3.5 h-3.5 text-muted-foreground" />
+                <Linkedin className="w-3.5 h-3.5 text-foreground dark:text-white" />
                 <span className="font-mono text-xs">LinkedIn</span>
               </a>
               <a
@@ -151,7 +132,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
               >
-                <Github className="w-3.5 h-3.5 text-muted-foreground" />
+                <Github className="w-3.5 h-3.5 text-foreground dark:text-white" />
                 <span className="font-mono text-xs">GitHub</span>
               </a>
             </div>
@@ -199,11 +180,10 @@ function MobileNav({
                     onNavigate(item.id)
                     setIsOpen(false)
                   }}
-                  className={`w-full text-left px-3 py-2 font-mono text-xs tracking-wider transition-colors ${
-                    activeSection === item.id
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-white"
-                  }`}
+                  className={`w-full text-left px-3 py-2 font-mono text-xs tracking-wider transition-colors ${activeSection === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-white"
+                    }`}
                 >
                   {item.label.toUpperCase()}
                 </button>

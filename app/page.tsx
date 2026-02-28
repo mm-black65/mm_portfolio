@@ -50,9 +50,8 @@ export default function Home() {
 
       {/* Main content */}
       <div
-        className={`min-h-screen transition-opacity duration-500 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
+        className={`min-h-screen transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"
+          }`}
       >
         <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
 
@@ -61,59 +60,66 @@ export default function Home() {
           {(activeSection === "projects" ||
             activeSection === "ideas" ||
             activeSection === "hackathons") && (
-            <div>
-              {activeSection === "projects" && (
-                <>
-                  {/* Hero banner carousel */}
-                  <HeroBanner
-                    projects={allProjects.slice(0, 4)}
-                    onProjectClick={handleProjectClick}
-                  />
+              <div>
+                {activeSection === "projects" && (
+                  <>
+                    <div className="mx-4 lg:mx-auto max-w-7xl">
+                      {/* Hero banner carousel */}
+                      <HeroBanner
+                        projects={allProjects.slice(0, 4)}
+                        onProjectClick={handleProjectClick}
+                      />
 
-                  <ProjectRow
-                    title="Featured Projects"
-                    projects={projectItems}
-                    onProjectClick={handleProjectClick}
-                    priorityFirst
-                  />
+                      <ProjectRow
+                        title="Featured Projects"
+                        projects={projectItems}
+                        onProjectClick={handleProjectClick}
+                        priorityFirst
+                        bgImage="/images/glowing-squares.avif"
+                      />
+                    </div>
+                    <ProjectRow
+                      title="Research Ideas"
+                      projects={ideaItems}
+                      onProjectClick={handleProjectClick}
+                      bgImage="/images/hand-interface.jpg"
+                    />
+                    <ProjectRow
+                      title="Hackathon Builds"
+                      projects={hackathonItems}
+                      onProjectClick={handleProjectClick}
+                      bgImage="/images/abstract-tech.avif"
+                    />
+                  </>
+                )}
+
+                {activeSection === "ideas" && (
                   <ProjectRow
                     title="Research Ideas"
                     projects={ideaItems}
                     onProjectClick={handleProjectClick}
+                    bgImage="/images/hand-interface.jpg"
                   />
+                )}
+
+                {activeSection === "hackathons" && (
                   <ProjectRow
-                    title="Hackathon Builds"
+                    title="Hackathon Projects"
                     projects={hackathonItems}
                     onProjectClick={handleProjectClick}
+                    bgImage="/images/abstract-tech.avif"
                   />
-                </>
-              )}
-
-              {activeSection === "ideas" && (
-                <ProjectRow
-                  title="Research Ideas"
-                  projects={ideaItems}
-                  onProjectClick={handleProjectClick}
-                />
-              )}
-
-              {activeSection === "hackathons" && (
-                <ProjectRow
-                  title="Hackathon Projects"
-                  projects={hackathonItems}
-                  onProjectClick={handleProjectClick}
-                />
-              )}
-            </div>
-          )}
+                )}
+              </div>
+            )}
 
           {activeSection === "certifications" && <CertificationsSection />}
           {activeSection === "skills" && <SkillsSection />}
           {activeSection === "about" && <AboutSection />}
         </main>
 
-        
-      
+
+
       </div>
     </>
   )

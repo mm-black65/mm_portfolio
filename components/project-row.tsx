@@ -10,9 +10,10 @@ interface ProjectRowProps {
   projects: Project[]
   onProjectClick: (project: Project) => void
   priorityFirst?: boolean
+  bgImage?: string
 }
 
-export function ProjectRow({ title, projects, onProjectClick, priorityFirst = false }: ProjectRowProps) {
+export function ProjectRow({ title, projects, bgImage, onProjectClick, priorityFirst = false }: ProjectRowProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
@@ -49,11 +50,22 @@ export function ProjectRow({ title, projects, onProjectClick, priorityFirst = fa
   if (projects.length === 0) return null
 
   return (
-    <section className="relative mb-10">
+    <section className={`relative mb-16 ${bgImage ? "py-10 border-y border-border/40 overflow-hidden mx-4 lg:mx-auto max-w-7xl rounded-xl bg-card/10 backdrop-blur-[2px]" : ""}`}>
+      {/* Aesthetic Faded Background Image (Optional) */}
+      {bgImage && (
+        <>
+          <div
+            className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.05] opacity-10 pointer-events-none bg-center bg-cover bg-no-repeat hidden dark:block"
+            style={{ backgroundImage: `url('${bgImage}')` }}
+          />
+          <div className="absolute inset-0 z-0 bg-background/50 dark:bg-gradient-to-b dark:from-background/80 dark:via-background/95 dark:to-background pointer-events-none" />
+        </>
+      )}
+
       {/* Section header */}
-      <div className="flex items-center gap-3 mb-4 px-6">
-        <div className="h-px w-4 bg-primary" style={{ boxShadow: "0 0 3px #C8B6FF40" }} />
-        <h2 className="font-mono text-xs tracking-[0.2em] text-foreground uppercase">
+      <div className="relative z-10 flex items-center gap-3 mb-6 px-6">
+        <div className="h-px w-4 bg-primary dark:bg-primary" style={{ boxShadow: "0 0 3px var(--glow-primary)" }} />
+        <h2 className="font-mono text-sm tracking-[0.2em] text-foreground dark:text-foreground uppercase font-bold">
           {title}
         </h2>
         <span className="font-mono text-[10px] text-muted-foreground">
@@ -94,7 +106,7 @@ export function ProjectRow({ title, projects, onProjectClick, priorityFirst = fa
 
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto px-6 pb-2 scrollbar-hide"
+          className="relative z-10 flex gap-4 overflow-x-auto px-6 pb-4 pt-2 scrollbar-hide"
           style={{ scrollbarWidth: "none" }}
         >
           {projects.map((project, index) => (

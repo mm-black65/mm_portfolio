@@ -49,7 +49,7 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
   if (projects.length === 0) return null
 
   return (
-    <div className="relative w-full mb-10 group">
+    <div className="relative w-full mb-16 group">
       {/* Left arrow */}
       <button
         onClick={prev}
@@ -128,11 +128,10 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
           <button
             key={i}
             onClick={() => goTo(i)}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              i === currentIndex
+            className={`h-1 rounded-full transition-all duration-300 ${i === currentIndex
                 ? "w-6 bg-primary"
                 : "w-2 bg-border hover:bg-muted-foreground"
-            }`}
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}

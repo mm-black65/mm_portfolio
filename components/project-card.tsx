@@ -13,11 +13,11 @@ export function ProjectCard({ project, onClick, priority = false }: ProjectCardP
   return (
     <button
       onClick={() => onClick(project)}
-      className="group relative flex-none w-72 overflow-hidden rounded-lg border border-border bg-card text-left transition-all duration-300 hover:border-primary/40 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group relative flex-none w-[260px] sm:w-72 overflow-hidden rounded-lg border border-border bg-card text-left transition-all duration-300 hover:border-[#2E8B57] hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       style={{ transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s" }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow =
-          "0 0 16px #5738b512, 0 0 32px #BDE0FE08"
+          "0 0 16px rgba(46, 139, 87, 0.5), 0 0 32px rgba(46, 139, 87, 0.3)"
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.boxShadow = "none"

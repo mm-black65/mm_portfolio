@@ -20,8 +20,8 @@ export function ResumeSection() {
       {/* Resume card */}
       <div className="max-w-3xl mx-auto border border-border rounded-lg bg-card overflow-hidden">
         {/* Header */}
-        <div className="p-6 border-b border-border">
-          <div className="flex items-start justify-between">
+        <div className="p-4 sm:p-6 border-b border-border">
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-0">
             <div>
               <h3 className="font-mono text-lg text-foreground tracking-tight">
                 Mahi Ahalawat
@@ -31,7 +31,7 @@ export function ResumeSection() {
               </p>
             </div>
             <button
-              className="flex items-center gap-2 px-4 py-2 font-mono text-xs tracking-wider text-primary border border-primary/40 rounded-sm hover:bg-primary/10 transition-all duration-300"
+              className="flex items-center justify-center w-full sm:w-auto gap-2 px-4 py-2 sm:py-2 font-mono text-xs tracking-wider text-primary border border-primary/40 rounded-sm hover:bg-primary/10 transition-all duration-300"
               style={{ animation: "glow-pulse 4s ease-in-out infinite" }}
             >
               <Download className="w-3 h-3" />
