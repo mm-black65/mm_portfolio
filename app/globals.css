@@ -1,0 +1,135 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT MODE COLORS (Set these to lighter values) */
+  --background: #ffffff;
+  --foreground: #121212;
+  --primary: #8a70d6; /* Darker lavender for light mode */
+  --accent: #72a1cc;
+  --border: #e0e0e0;
+  --card: #f9f9f9;
+  /* ... copy other variables here and adjust for light mode */
+}
+
+.dark {
+  /* DARK MODE COLORS (Paste your current hex codes here) */
+  --background: #121212;
+  --foreground: #e0e0e0;
+  --primary: #C8B6FF;
+  --accent: #BDE0FE;
+  --border: #252530;
+  --card: #181818;
+  --glow-primary: #C8B6FF;
+  --glow-accent: #BDE0FE;
+}
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+:root {
+  --background: #121212;
+  --foreground: #e0e0e0;
+  --card: #181818;
+  --card-foreground: #e0e0e0;
+  --popover: #181818;
+  --popover-foreground: #e0e0e0;
+  --primary: #C8B6FF;
+  --primary-foreground: #121212;
+  --secondary: #1e1e1e;
+  --secondary-foreground: #e0e0e0;
+  --muted: #1e1e1e;
+  --muted-foreground: #707080;
+  --accent: #BDE0FE;
+  --accent-foreground: #121212;
+  --destructive: #ff3333;
+  --destructive-foreground: #ffffff;
+  --border: #252530;
+  --input: #252530;
+  --ring: #C8B6FF;
+  --chart-1: #C8B6FF;
+  --chart-2: #BDE0FE;
+  --chart-3: #a78bfa;
+  --chart-4: #7dd3fc;
+  --chart-5: #6366f1;
+  --radius: 0.5rem;
+  --sidebar: #141418;
+  --sidebar-foreground: #e0e0e0;
+  --sidebar-primary: #C8B6FF;
+  --sidebar-primary-foreground: #121212;
+  --sidebar-accent: #1e1e1e;
+  --sidebar-accent-foreground: #e0e0e0;
+  --sidebar-border: #252530;
+  --sidebar-ring: #C8B6FF;
+  --glow-primary: #C8B6FF;
+  --glow-accent: #BDE0FE;
+}
+
+html {
+  font-family: 'Geist', 'Geist Fallback', sans-serif;
+}
+
+code {
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--ring);
+}
+
+body {
+  background: linear-gradient(180deg, #121212 0%, #141418 50%, #121212 100%);
+  background-attachment: fixed;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Glitch animation for logo text */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-1deg); }
+  40% { transform: skew(0.5deg); }
+  60% { transform: skew(-0.5deg); }
+  80% { transform: skew(1deg); }
+  100% { transform: skew(0deg); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 4px #C8B6FF20, 0 0 8px #BDE0FE10; }
+  50% { box-shadow: 0 0 6px #C8B6FF2A, 0 0 12px #BDE0FE14, 0 0 18px #C8B6FF06; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252530;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8B6FF22;
+}
