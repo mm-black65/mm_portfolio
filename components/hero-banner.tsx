@@ -86,11 +86,12 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
                 fill
                 className="object-cover"
                 sizes="100vw"
+                quality={90}
                 priority={i === 0}
               />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+              {/* Gradient overlays */}
+              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 max-w-xl">
@@ -129,8 +130,8 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
             key={i}
             onClick={() => goTo(i)}
             className={`h-1 rounded-full transition-all duration-300 ${i === currentIndex
-                ? "w-6 bg-primary"
-                : "w-2 bg-border hover:bg-muted-foreground"
+              ? "w-6 bg-primary"
+              : "w-2 bg-border hover:bg-muted-foreground"
               }`}
             aria-label={`Go to slide ${i + 1}`}
           />

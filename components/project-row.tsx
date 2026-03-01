@@ -3,12 +3,12 @@
 import { useRef, useState, useEffect, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { ProjectCard } from "./project-card"
-import type { Project } from "@/lib/data"
+import type { Project, Hackathon } from "@/lib/data"
 
 interface ProjectRowProps {
   title: string
-  projects: Project[]
-  onProjectClick: (project: Project) => void
+  projects: (Project | Hackathon)[]
+  onProjectClick: (item: Project | Hackathon) => void
   priorityFirst?: boolean
   bgImage?: string
 }

@@ -8,18 +8,19 @@ import { ProjectRow } from "@/components/project-row"
 import { ProjectDetail } from "@/components/project-detail"
 import { SkillsSection } from "@/components/skills-section"
 import { CertificationsSection } from "@/components/certifications-section"
-import { projects, type Project } from "@/lib/data"
+import { projects, hackathons, type Project, type Hackathon } from "@/lib/data"
 import { AboutSection } from "@/components/about-section"
 import { Footer } from "@/components/footer"
 import { ContactCTA } from "@/components/contact-cta"
+import { HackathonsSection } from "@/components/hackathons-section"
 
 import { FilterBar } from "@/components/filter-bar"
+import { ProjectGallery } from "@/components/project-gallery"
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
-  const [activeCategory, setActiveCategory] = useState("All")
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | Hackathon | null>(null)
 
   const handleLoadComplete = useCallback(() => {
     setIsLoaded(true)
@@ -30,8 +31,8 @@ export default function Home() {
     setSelectedProject(null)
   }, [])
 
-  const handleProjectClick = useCallback((project: Project) => {
-    setSelectedProject(project)
+  const handleProjectClick = useCallback((item: Project | Hackathon) => {
+    setSelectedProject(item)
   }, [])
 
   const handleBack = useCallback(() => {
@@ -39,15 +40,8 @@ export default function Home() {
   }, [])
 
   const categories = ["All", "Robotics", "AI", "Ideas", "Hackathons"]
-
-  const filteredProjects = projects.filter((p) => {
-    if (activeCategory === "All") return true
-    if (activeCategory === "Ideas") return p.category === "ideas"
-    if (activeCategory === "Hackathons") return p.category === "hackathons"
-    if (activeCategory === "Robotics") return p.tags.includes("Robotics")
-    if (activeCategory === "AI") return p.tags.includes("AI") || p.tags.includes("ML") || p.tags.includes("CV") || p.tags.includes("NLP")
-    return true
-  })
+  const sortedProjects = [...projects].sort((a, b) => b.year.localeCompare(a.year))
+  const sortedHackathons = [...hackathons].sort((a, b) => b.year.localeCompare(a.year))
 
   // If a project is selected, show detail view
   const content = selectedProject ? (
@@ -63,7 +57,7 @@ export default function Home() {
           />
           <ProjectRow
             title="Recently Added"
-            projects={projects.slice(0, 3)}
+            projects={sortedProjects.slice(0, 3)}
             onProjectClick={handleProjectClick}
             bgImage="/images/abstract-tech.avif"
           />
@@ -75,8 +69,8 @@ export default function Home() {
             bgImage="/images/glowing-squares.avif"
           />
           <ProjectRow
-            title="Hackathon Builds"
-            projects={projects.filter(p => p.category === "hackathons")}
+            title="Hackathons"
+            projects={sortedHackathons}
             onProjectClick={handleProjectClick}
             bgImage="/images/abstract-tech.avif"
           />
@@ -85,29 +79,16 @@ export default function Home() {
         </div>
       )}
 
-      {/* Projects Section (KISSKH Gallery containing everything) */}
+      {/* Projects Section (Unified Layout) */}
       {activeSection === "projects" && (
-        <div className="mx-4 lg:mx-auto max-w-7xl animate-in fade-in duration-700">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-0.5 w-4 bg-primary dark:bg-[#C8B6FF]" style={{ boxShadow: "0 0 10px rgba(200,182,255,0.8)" }} />
-            <h2 className="font-mono text-xs tracking-[0.2em] text-foreground dark:text-[#BDE0FE] uppercase">
-              Project Gallery
-            </h2>
-            <div className="flex-1 h-px bg-border" />
-          </div>
+        <div className="animate-in fade-in duration-700">
+          <ProjectGallery onProjectClick={handleProjectClick} />
+        </div>
+      )}
 
-          <FilterBar
-            categories={categories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
-
-          <ProjectRow
-            title={activeCategory === "All" ? "All Works" : activeCategory}
-            projects={filteredProjects}
-            onProjectClick={handleProjectClick}
-            bgImage="/images/glowing-squares.avif"
-          />
+      {activeSection === "hackathons" && (
+        <div className="animate-in fade-in duration-700">
+          <HackathonsSection onSelectHackathon={handleProjectClick} />
         </div>
       )}
 
@@ -142,7 +123,10 @@ export default function Home() {
         className={`min-h-screen flex flex-col transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"
           }`}
       >
-        <Navbar activeSection={selectedProject ? "projects" : activeSection} onNavigate={handleNavigate} />
+        <Navbar
+          activeSection={selectedProject ? ("certificate" in selectedProject ? "hackathons" : "projects") : activeSection}
+          onNavigate={handleNavigate}
+        />
 
         <div className="flex-1">
           {content}

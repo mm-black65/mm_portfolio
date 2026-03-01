@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import type { Project } from "@/lib/data"
+import { Project, Hackathon } from "@/lib/data"
 
 interface ProjectCardProps {
-  project: Project
-  onClick: (project: Project) => void
+  project: Project | Hackathon
+  onClick: (item: Project | Hackathon) => void
   priority?: boolean
 }
 
@@ -13,7 +13,7 @@ export function ProjectCard({ project, onClick, priority = false }: ProjectCardP
   return (
     <button
       onClick={() => onClick(project)}
-      className="group relative flex-none w-[260px] sm:w-72 overflow-hidden rounded-lg border border-border bg-card text-left transition-all duration-300 hover:border-[#2E8B57] hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group relative flex-none w-[280px] sm:w-[320px] overflow-hidden rounded-lg border border-border bg-card text-left transition-all duration-300 hover:border-[#2E8B57] hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       style={{ transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s" }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow =
@@ -29,7 +29,7 @@ export function ProjectCard({ project, onClick, priority = false }: ProjectCardP
           src={project.image}
           alt={`${project.title} thumbnail`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-contain transition-transform duration-500 group-hover:scale-105"
           sizes="288px"
           priority={priority}
         />
