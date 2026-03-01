@@ -7,7 +7,7 @@ export function AboutSection() {
     <section className="relative px-6 py-12 max-w-7xl mx-auto overflow-hidden rounded-xl border-y border-border/40 bg-card/10 backdrop-blur-[2px] mb-16">
       {/* Aesthetic Faded Background Image */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.15] pointer-events-none bg-center bg-cover bg-no-repeat hidden dark:block"
+        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.1] pointer-events-none bg-center bg-cover bg-no-repeat hidden dark:block brightness-[0.7]"
         style={{ backgroundImage: "url('/images/about-bg.jpg')" }}
       />
       <div className="absolute inset-0 z-0 bg-background/50 dark:bg-gradient-to-b dark:from-background/80 dark:via-background/95 dark:to-background pointer-events-none" />
@@ -19,7 +19,7 @@ export function AboutSection() {
           <img
             src="/images/kk.jpg"
             alt="Mahi Ahalawat"
-            className="w-40 h-40 rounded-2xl object-cover border border-border shadow-lg"
+            className="w-40 h-40 rounded-2xl object-cover border border-border shadow-lg opacity-85 brightness-90 saturate-[0.8]"
           />
         </div>
         {/* Space and White horizontal line after the image */}
@@ -27,7 +27,7 @@ export function AboutSection() {
 
         {/* Section header */}
         <div className="flex items-center gap-3 mb-8">
-          <div className="h-px w-4 bg-primary dark:bg-[#C8B6FF]" style={{ boxShadow: "0 0 5px var(--glow-primary)" }} />
+          <div className="h-0.5 w-4 bg-primary dark:bg-[#C8B6FF]" style={{ boxShadow: "0 0 10px rgba(200,182,255,0.8)" }} />
           <h2 className="font-mono text-xs tracking-[0.2em] text-foreground dark:text-[#BDE0FE] uppercase">
             About
           </h2>
@@ -39,19 +39,16 @@ export function AboutSection() {
           {/* Bio */}
           <div className="lg:col-span-2 space-y-4">
             <p className="text-sm text-muted-foreground dark:text-[#BDE0FE]/80 leading-relaxed">
-              I am a Robotics and AI Engineering student passionate about building
-              intelligent systems that bridge the gap between the digital and physical
-              worlds. My work spans autonomous navigation, computer vision, embedded
-              systems, and machine learning.
+              I am a First-Year Student & Embedded Systems Enthusiast driven by the challenge of bridging the gap between code and physical hardware. While most start with simple high-level apps, I prefer getting my hands dirty with Microcontroller architectures, Embedded C, and the "under-the-hood" mechanics of how silicon actually thinks.
             </p>
             <p className="text-sm text-muted-foreground dark:text-[#BDE0FE]/80 leading-relaxed">
-              I have contributed to research in multi-agent robotic coordination and
-              edge computing for real-time inference. I believe the future belongs to
-              systems that can perceive, reason, and act in complex environments.
+              My technical journey is rooted in real-time systems—from architecting smart automation and RFID security to engineering robotics prototypes. I focus on the precision of hardware: managing GPIO configurations, interrupt handling, and memory optimization to build efficient, scalable devices.
             </p>
             <p className="text-sm text-muted-foreground dark:text-[#BDE0FE]/80 leading-relaxed">
-              When not debugging sensor fusion algorithms, you can find me at hackathons,
-              contributing to open-source robotics tools.
+              Bridging Data & Hardware: Currently, as a Data Analysis Intern, I am expanding my stack with Python and MySQL. I am fascinated by the intersection of local embedded sensing and global data analytics, aiming to build intelligent systems that don't just act, but learn.
+            </p>
+            <p className="text-sm text-muted-foreground dark:text-[#BDE0FE]/80 leading-relaxed">
+              Beyond the Logic: When I’m not debugging circuits or optimizing memory, I’m usually behind a camera lens. My knack for photography fuels my attention to detail—whether I’m perfecting a circuit board layout or designing the visual flow of a portfolio.
             </p>
 
           </div>

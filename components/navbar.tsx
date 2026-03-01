@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { User, Mail, Linkedin, Github } from "lucide-react"
+import { User, Heart, LogOut, Github } from "lucide-react"
 
 interface NavbarProps {
   activeSection: string
@@ -9,9 +9,8 @@ interface NavbarProps {
 }
 
 const navItems = [
+  { id: "home", label: "Home" },
   { id: "projects", label: "Projects" },
-  { id: "ideas", label: "Ideas" },
-  { id: "hackathons", label: "Hackathons" },
   { id: "certifications", label: "Certifications" },
   { id: "skills", label: "Skills" },
   { id: "about", label: "About" }
@@ -40,7 +39,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
         {/* Logo */}
         <button
           onClick={() => onNavigate("about")}
-          className="font-sans text-base font-semibold tracking-wide transition-opacity duration-300 hover:opacity-80"
+          className="font-mono text-lg font-bold tracking-tighter transition-all duration-300 hover:tracking-normal active:scale-95"
           style={{
             background: "linear-gradient(135deg, #C8B6FF 0%, #BDE0FE 100%)",
             WebkitBackgroundClip: "text",
@@ -48,7 +47,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
             backgroundClip: "text",
           }}
         >
-          Portfolio
+          MAHI.AI
         </button>
 
         {/* Navigation links */}
@@ -67,12 +66,13 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 {item.label.toUpperCase()}
                 {activeSection === item.id && (
                   <span
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-full bg-primary/60 transition-all duration-300"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-full bg-primary/80 transition-all duration-300"
+                    style={{ boxShadow: "0 0 10px rgba(200,182,255,0.7)" }}
                   />
                 )}
                 {hoveredItem === item.id && activeSection !== item.id && (
                   <span
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-1/2 bg-primary/30 transition-all duration-300"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-3/4 bg-primary/40 transition-all duration-300"
                   />
                 )}
               </button>
@@ -102,39 +102,30 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
 
             {/* Dropdown */}
             <div
-              className={`absolute right-0 top-full mt-2 w-56 rounded-lg border border-border bg-card/95 backdrop-blur-md p-3 flex flex-col gap-1 transition-all duration-200 origin-top-right ${dropdownOpen
-                ? "opacity-100 scale-100 pointer-events-auto"
+              className={`absolute right-0 top-full mt-2 w-56 rounded-lg border border-border bg-[#0d0d12] p-3 flex flex-col gap-1 transition-all duration-200 origin-top-right ${dropdownOpen
+                ? "opacity-100 scale-100 pointer-events-auto shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
                 : "opacity-0 scale-95 pointer-events-none"
                 }`}
             >
-              <span className="font-mono text-[10px] text-muted-foreground tracking-wider px-2 py-1">
-                CONTACT
-              </span>
-              <a
-                href="mailto:mahiahalawat112@example.com"
+              <button
+                onClick={() => { onNavigate("about"); setDropdownOpen(false); }}
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
               >
-                <Mail className="w-3.5 h-3.5 text-foreground dark:text-white" />
-                <span className="font-mono text-xs">Email</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mahi-ahalawat-26bb68381?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-                target="_blank"
-                rel="noopener noreferrer"
+                <User className="w-3.5 h-3.5 text-foreground dark:text-white" />
+                <span className="font-mono text-xs">Mahi Ahalawat</span>
+              </button>
+              <button
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
               >
-                <Linkedin className="w-3.5 h-3.5 text-foreground dark:text-white" />
-                <span className="font-mono text-xs">LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com/mm-black65"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
+                <Heart className="w-3.5 h-3.5 text-foreground dark:text-white" />
+                <span className="font-mono text-xs">Favorite</span>
+              </button>
+              <button
+                className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150 border-t border-border/40 mt-1 pt-2"
               >
-                <Github className="w-3.5 h-3.5 text-foreground dark:text-white" />
-                <span className="font-mono text-xs">GitHub</span>
-              </a>
+                <LogOut className="w-3.5 h-3.5 text-destructive dark:text-destructive" />
+                <span className="font-mono text-xs text-destructive">Sign Out</span>
+              </button>
             </div>
           </div>
         </div>

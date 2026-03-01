@@ -13,60 +13,53 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header bar */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-background/50 backdrop-blur-md sticky top-0 z-30">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-white transition-colors duration-200"
+          className="group flex items-center gap-2 px-3 py-1.5 font-mono text-xs text-muted-foreground hover:text-white border border-transparent hover:border-white/20 hover:bg-white/10 rounded-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] active:scale-95"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
           BACK
         </button>
 
-        <div className="flex items-center gap-3">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-0.5 font-mono text-[10px] tracking-wider rounded-sm border border-primary/30 text-primary"
-            >
-              {tag}
-            </span>
-          ))}
+        <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/40 font-bold uppercase">
+          PROJECT_VIEW_MODE
         </div>
       </div>
 
       {/* Title section */}
-      <div className="px-6 py-6 border-b border-border">
-        <h1 className="font-mono text-xl tracking-tight text-foreground mb-2">
+      <div className="px-6 py-8 border-b border-border bg-card/20">
+        <h1 className="font-mono text-2xl md:text-3xl tracking-tight text-foreground mb-4">
           {project.title}
         </h1>
-        <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-3xl">
           {project.description}
         </p>
       </div>
 
       {/* Split layout: Video + Code */}
-      <div className="flex flex-col lg:flex-row" style={{ minHeight: "50vh" }}>
+      <div className="flex flex-col lg:flex-row border-b border-border" style={{ minHeight: "50vh" }}>
         {/* Left: Demo video area */}
         <div className="flex-1 flex flex-col lg:border-r border-border">
-          <div className="flex items-center px-4 py-2 border-b border-border">
+          <div className="flex items-center px-4 py-2 border-b border-border bg-card/30">
             <span className="font-mono text-[10px] text-muted-foreground tracking-wider">
               DEMO_PREVIEW
             </span>
           </div>
-          <div className="flex-1 relative flex items-center justify-center bg-card min-h-[300px]">
+          <div className="flex-1 relative flex items-center justify-center bg-black/40 min-h-[350px]">
             <Image
               src={project.image}
               alt={`${project.title} preview`}
               fill
-              className="object-cover opacity-30"
+              className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
               sizes="50vw"
             />
-            <div className="absolute inset-0 bg-background/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
 
             <button
-              className="relative z-10 flex items-center gap-3 px-6 py-3 font-mono text-sm tracking-wider text-primary border border-primary/40 rounded-sm transition-all duration-300 hover:bg-primary/10"
+              className="relative z-10 flex items-center gap-3 px-8 py-3.5 font-mono text-sm tracking-wider text-primary border border-primary/40 rounded-sm transition-all duration-300 hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(200,182,255,0.4)] backdrop-blur-sm group"
             >
-              <Play className="w-4 h-4" />
+              <Play className="w-4 h-4 fill-primary/20 group-hover:fill-primary transition-colors" />
               WATCH DEMO
             </button>
           </div>
@@ -78,28 +71,28 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
           <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-[#0d0d15]">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] shadow-[0_0_5px_rgba(255,95,86,0.3)]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] shadow-[0_0_5px_rgba(255,189,46,0.3)]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] shadow-[0_0_5px_rgba(39,201,63,0.3)]" />
               </div>
               <span className="font-mono text-[10px] text-muted-foreground tracking-wider">
                 main.py
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] text-muted-foreground">
+              <span className="font-mono text-[10px] text-muted-foreground/60">
                 {project.code.split("\n").length} lines
               </span>
             </div>
           </div>
 
           {/* Code content */}
-          <div className="flex-1 overflow-auto bg-[#0d0d15] p-4 max-h-[400px]">
+          <div className="flex-1 overflow-auto bg-[#0d0d15] p-4 max-h-[450px] custom-scrollbar">
             <pre className="font-mono text-xs leading-relaxed">
               <code>
                 {project.code.split("\n").map((line, i) => (
-                  <div key={i} className="flex">
-                    <span className="inline-block w-8 text-right pr-4 text-muted-foreground/40 select-none">
+                  <div key={i} className="flex group/line">
+                    <span className="inline-block w-8 text-right pr-4 text-muted-foreground/20 group-hover/line:text-muted-foreground/40 transition-colors select-none">
                       {i + 1}
                     </span>
                     <span className="text-foreground/80 whitespace-pre">
@@ -113,29 +106,29 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
           {/* Code action buttons */}
           <div className="flex items-center gap-3 px-4 py-3 border-t border-border bg-[#0d0d15]">
-            <button className="flex items-center gap-2 px-4 py-2 font-mono text-xs tracking-wider text-foreground border border-border rounded-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+            <button className="flex items-center gap-2 px-4 py-2.5 font-mono text-[10px] tracking-wider text-foreground border border-border/60 rounded-sm hover:border-primary/50 hover:text-primary transition-all duration-300">
               <Download className="w-3 h-3" />
-              DOWNLOAD CODE
+              DOWNLOAD
             </button>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 font-mono text-xs tracking-wider text-foreground border border-border rounded-sm hover:border-primary/40 hover:text-primary transition-all duration-200"
+              className="flex items-center gap-2 px-4 py-2.5 font-mono text-[10px] tracking-wider text-foreground border border-border/60 rounded-sm hover:border-primary/50 hover:text-primary transition-all duration-300"
             >
               <Github className="w-3 h-3" />
-              VIEW ON GITHUB
+              REPOSITORY
             </a>
           </div>
         </div>
       </div>
 
       {/* Extended project info sections */}
-      <div className="max-w-5xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Project Description */}
-          <DetailBlock title="PROJECT DESCRIPTION">
-            <p className="text-sm text-muted-foreground leading-relaxed">
+          <DetailBlock title="OVERVIEW">
+            <p className="text-base text-muted-foreground leading-relaxed">
               {project.description}
             </p>
           </DetailBlock>
@@ -143,7 +136,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
           {/* Future Scope */}
           {project.futureScope && (
             <DetailBlock title="FUTURE SCOPE">
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 {project.futureScope}
               </p>
             </DetailBlock>
@@ -152,10 +145,13 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
           {/* Materials Used */}
           {project.materials && project.materials.length > 0 && (
             <DetailBlock title="MATERIALS USED">
-              <ul className="space-y-1.5">
+              <ul className="space-y-3">
                 {project.materials.map((material, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-primary/50 shrink-0 mt-0.5">-</span>
+                  <li key={i} className="flex items-center gap-3 text-base text-muted-foreground">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-white"
+                      style={{ boxShadow: "0 0 10px rgba(255, 255, 255, 0.8)" }}
+                    />
                     {material}
                   </li>
                 ))}
@@ -166,10 +162,13 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
           {/* Challenges Faced */}
           {project.challenges && project.challenges.length > 0 && (
             <DetailBlock title="CHALLENGES FACED">
-              <ul className="space-y-1.5">
+              <ul className="space-y-3">
                 {project.challenges.map((challenge, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-accent/50 shrink-0 mt-0.5">-</span>
+                  <li key={i} className="flex items-center gap-3 text-base text-muted-foreground">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-white"
+                      style={{ boxShadow: "0 0 10px rgba(255, 255, 255, 0.8)" }}
+                    />
                     {challenge}
                   </li>
                 ))}
@@ -178,47 +177,42 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
           )}
         </div>
 
-        {/* Tags */}
-        <div className="mt-8 pt-6 border-t border-border">
-          <span className="font-mono text-[10px] tracking-wider text-muted-foreground mb-3 block">
-            TAGS
-          </span>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 font-mono text-xs tracking-wider rounded-sm border border-primary/20 text-primary bg-primary/5"
-              >
-                {tag}
-              </span>
-            ))}
+        {/* Tags at bottom left */}
+        <div className="mt-12 pt-8 border-t border-border/40">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-2">
+              <div className="h-0.5 w-4 bg-white/60" style={{ boxShadow: "0_0_8px_rgba(255,255,255,0.4)" }} />
+              <h2 className="font-mono text-xl md:text-2xl tracking-[0.2em] text-white font-bold uppercase">
+                Associated Tags
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 font-mono text-[11px] tracking-wider rounded-sm border border-primary/20 text-primary bg-primary/5 hover:bg-primary/10 transition-colors"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Back navigation */}
-      <div className="flex items-center px-6 py-4 border-t border-border">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-2 px-4 py-2 font-mono text-xs tracking-wider text-muted-foreground border border-border rounded-sm hover:border-foreground/30 hover:text-white transition-all duration-200"
-        >
-          <ArrowLeft className="w-3 h-3" />
-          BACK TO PROJECTS
-        </button>
       </div>
     </div>
   )
 }
-
 function DetailBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="p-5 border border-border rounded-lg bg-card">
-      <div className="flex items-center gap-2 mb-4">
+      <div className="flex items-center gap-3 mb-6">
         <span
-          className="w-1.5 h-1.5 rounded-full bg-primary"
-          style={{ boxShadow: "0 0 4px #C8B6FF60" }}
+          className={`w-2 h-2 rounded-full ${["OVERVIEW", "FUTURE SCOPE", "MATERIALS USED", "CHALLENGES FACED"].includes(title)
+            ? "bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+            : "bg-black shadow-[0_0_8px_rgba(0,0,0,0.8)]"
+            }`}
         />
-        <h3 className="font-mono text-[10px] tracking-wider text-primary">
+        <h3 className="font-mono text-xs md:text-sm tracking-wider text-primary dark:text-[#C8B6FF]">
           {title}
         </h3>
       </div>

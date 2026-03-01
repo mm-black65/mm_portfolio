@@ -45,10 +45,6 @@ export default function RootLayout({
         <div className="flex-1">
           {children}
         </div>
-
-        <footer className="text-center py-6 text-sm tracking-widest text-[#C8B6FF] opacity-70">
-          - Mahi Ahalawat -
-        </footer>
       </body>
     </html>
   )

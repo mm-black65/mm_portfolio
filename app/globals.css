@@ -196,3 +196,19 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #C8B6FF22;
 }
+
+/* Final styles and branding cleanup */
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Hide Next.js/Vercel dev/toast indicators if present */
+#next-dev-tools-enabled,
+[data-nextjs-toast-wrapper],
+[data-nextjs-data-error-toast],
+.nextjs-toast-errors-parent {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
