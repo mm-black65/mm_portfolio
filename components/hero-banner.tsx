@@ -56,7 +56,7 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-card/80 border border-border opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:border-primary/40 backdrop-blur-sm"
         aria-label="Previous project"
       >
-        <ChevronLeft className="w-4 h-4 text-foreground" />
+        <ChevronLeft className="w-4 h-4 text-black" />
       </button>
 
       {/* Right arrow */}
@@ -65,7 +65,7 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-card/80 border border-border opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:border-primary/40 backdrop-blur-sm"
         aria-label="Next project"
       >
-        <ChevronRight className="w-4 h-4 text-foreground" />
+        <ChevronRight className="w-4 h-4 text-black" />
       </button>
 
       {/* Scrollable slides */}
@@ -105,10 +105,10 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
                     </span>
                   ))}
                 </div>
-                <h2 className="font-mono text-lg md:text-xl text-foreground tracking-tight mb-1.5">
+                <h2 className="font-mono text-lg md:text-xl text-black tracking-tight mb-1.5">
                   {project.title}
                 </h2>
-                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-4">
+                <p className="text-xs md:text-sm text-black leading-relaxed line-clamp-2 mb-4">
                   {project.description}
                 </p>
                 <button
