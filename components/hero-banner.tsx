@@ -46,6 +46,7 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
     }
   }, [next])
 
+
   if (projects.length === 0) return null
 
   return (
@@ -56,7 +57,7 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-card/80 border border-border opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:border-primary/40 backdrop-blur-sm"
         aria-label="Previous project"
       >
-        <ChevronLeft className="w-4 h-4 text-black" />
+        <ChevronLeft className="w-4 h-4 text-white" />
       </button>
 
       {/* Right arrow */}
@@ -65,7 +66,7 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-card/80 border border-border opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:border-primary/40 backdrop-blur-sm"
         aria-label="Next project"
       >
-        <ChevronRight className="w-4 h-4 text-black" />
+        <ChevronRight className="w-4 h-4 text-white" />
       </button>
 
       {/* Scrollable slides */}
@@ -89,9 +90,9 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
                 quality={90}
                 priority={i === 0}
               />
-              {/* Gradient overlays */}
-              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+              {/* Dark gradient overlays to improve legibility */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
 
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 max-w-xl">
@@ -105,10 +106,10 @@ export function HeroBanner({ projects, onProjectClick }: HeroBannerProps) {
                     </span>
                   ))}
                 </div>
-                <h2 className="font-mono text-lg md:text-xl text-black tracking-tight mb-1.5">
+                <h2 className="font-mono text-lg md:text-xl text-white tracking-tight mb-1.5">
                   {project.title}
                 </h2>
-                <p className="text-xs md:text-sm text-black leading-relaxed line-clamp-2 mb-4">
+                <p className="text-xs md:text-sm text-white leading-relaxed line-clamp-2 mb-4">
                   {project.description}
                 </p>
                 <button
