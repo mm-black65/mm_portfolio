@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { User, Heart, LogOut, Github } from "lucide-react"
+import { User, Heart, Github } from "lucide-react"
 
 interface NavbarProps {
   activeSection: string
@@ -115,18 +115,22 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
                 <User className="w-3.5 h-3.5 text-foreground dark:text-white" />
                 <span className="font-mono text-xs">Mahi Ahalawat</span>
               </button>
-              <button
+              <a
+                href="https://github.com/mm-black65"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150"
               >
-                <Heart className="w-3.5 h-3.5 text-foreground dark:text-white" />
-                <span className="font-mono text-xs">Favorite</span>
-              </button>
-              <button
+                <Github className="w-3.5 h-3.5 text-foreground dark:text-white" />
+                <span className="font-mono text-xs">GitHub Profile</span>
+              </a>
+              <a
+                href="mailto:mahiahalawat112@gmail.com"
                 className="flex items-center gap-3 px-2 py-2 rounded-md text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors duration-150 border-t border-border/40 mt-1 pt-2"
               >
-                <LogOut className="w-3.5 h-3.5 text-destructive dark:text-destructive" />
-                <span className="font-mono text-xs text-destructive">Sign Out</span>
-              </button>
+                <Heart className="w-3.5 h-3.5 text-primary" />
+                <span className="font-mono text-xs">Get In Touch</span>
+              </a>
             </div>
           </div>
         </div>

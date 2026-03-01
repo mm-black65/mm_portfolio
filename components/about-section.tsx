@@ -124,12 +124,12 @@ export function AboutSection() {
 
           <div className="space-y-0">
             {[
-              { year: "April'29  ", event: "   Expected Graduation - B.TECH Robotics & AI" },
+              { year: "Apr'29", event: "Expected Graduation - B.TECH Robotics & AI" },
               { year: "Feb'26", event: "Data Analysis Intern - Finenstics" },
-              { year: "July'25  ", event: "Started Robotics Engineering at Jaypee Institute of Information Techonology" },
+              { year: "Jul'25", event: "Started Robotics Engineering at Jaypee Institute of Information Technology" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4 pb-4">
-                <span className="font-mono text-[11px] text-muted-foreground dark:text-[#C8B6FF]/80 w-12 shrink-0">
+                <span className="font-mono text-[11px] text-muted-foreground dark:text-[#C8B6FF]/80 w-16 shrink-0">
                   {item.year}
                 </span>
                 <span className="text-sm text-foreground dark:text-[#BDE0FE]">

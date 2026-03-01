@@ -164,7 +164,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
                 <div>
                   <h4 className="font-mono text-sm text-foreground mb-2 flex items-center gap-2">
                     <Play className="w-4 h-4 text-primary" />
-                    AVAILABE_ASSETS
+                    AVAILABLE_ASSETS
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Explore the technical execution through interactive media and documentation.
@@ -252,43 +252,4 @@ function DetailBlock({ title, children }: { title: string; children: React.React
   )
 }
 
-function highlightSyntax(line: string) {
-  const keywords = [
-    "import", "from", "class", "def", "self", "return", "if", "else",
-    "for", "in", "not", "and", "or", "True", "False", "None", "with",
-    "as", "try", "except", "raise", "print", "lambda",
-  ]
-  const parts = line.split(/(\s+|[()[\]{},:.=<>+\-*/])/g)
 
-  return parts.map((part, idx) => {
-    if (keywords.includes(part)) {
-      return (
-        <span key={idx} className="text-primary">
-          {part}
-        </span>
-      )
-    }
-    if (part.startsWith("#")) {
-      return (
-        <span key={idx} className="text-muted-foreground/60 italic">
-          {part}
-        </span>
-      )
-    }
-    if (part.startsWith("'") || part.startsWith('"')) {
-      return (
-        <span key={idx} className="text-green-400/80">
-          {part}
-        </span>
-      )
-    }
-    if (/^\d+$/.test(part)) {
-      return (
-        <span key={idx} className="text-orange-400/80">
-          {part}
-        </span>
-      )
-    }
-    return <span key={idx}>{part}</span>
-  })
-}

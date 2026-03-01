@@ -1,15 +1,27 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import './globals.css'
 
 const geist = Geist({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mahi's Portfolio",
+  title: "Mahi Ahalawat | Robotics & AI Portfolio",
   description:
-    'Portfolio of Mahi Ahalawat - Robotics and AI engineering student. Projects spanning AI, IoT, Robotics, and Machine Learning.',
+    'Portfolio of Mahi Ahalawat — Robotics and AI engineering student at JIIT. Projects spanning Embedded Systems, IoT, AI, and Machine Learning.',
+  keywords: ['Mahi Ahalawat', 'Robotics', 'AI', 'Embedded Systems', 'IoT', 'Machine Learning', 'Portfolio', 'JIIT', 'ESP32', 'Arduino'],
+  authors: [{ name: 'Mahi Ahalawat' }],
+  openGraph: {
+    title: "Mahi Ahalawat | Robotics & AI Portfolio",
+    description: 'Robotics and AI engineering student building intelligent embedded systems, IoT solutions, and hackathon projects.',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Mahi Ahalawat | Robotics & AI Portfolio",
+    description: 'Robotics and AI engineering student building intelligent embedded systems, IoT solutions, and hackathon projects.',
+  },
   icons: {
     icon: [
       {

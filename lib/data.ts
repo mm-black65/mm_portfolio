@@ -10,7 +10,6 @@ export interface Project {
     category: "projects" | "ideas"
     demoVideo?: string
     demoPdf?: string
-    code?: string
     futureScope?: string[]
     materials?: string[]
     challenges?: string[]
@@ -130,7 +129,6 @@ export const projects: Project[] = [
         image: "/images/s1.png",
         detailImage: "/images/pro/hxp.jpeg",
         category: "projects",
-        demoPdf: "https://example.com/rescue-robot-presentation.pdf",
         year: "2025",
         github: "https://github.com/mm-black65/HOMEGUARDX.git",
         demoVideo: "/images/pro/hx.mp4",
@@ -204,7 +202,7 @@ export const hackathons: Hackathon[] = [
         tags: ["AI", "ML", "Web Development", "Cloud", "Prompt Engineering"],
         image: "/images/hack/zz.png",
         year: "2026",
-        github: "https://github.com/mm-black65/OkOkay-AI.git",
+        github: "https://github.com/mm-black65/zephyr-health.git",
         demoPdf: "/images/hack/Ppt.pdf",
         demoVideo: "/images/hack/z1.mp4",
         certificate: "/images/hack/ok.png",

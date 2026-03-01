@@ -13,8 +13,6 @@ import { AboutSection } from "@/components/about-section"
 import { Footer } from "@/components/footer"
 import { ContactCTA } from "@/components/contact-cta"
 import { HackathonsSection } from "@/components/hackathons-section"
-
-import { FilterBar } from "@/components/filter-bar"
 import { ProjectGallery } from "@/components/project-gallery"
 
 export default function Home() {
@@ -29,6 +27,7 @@ export default function Home() {
   const handleNavigate = useCallback((section: string) => {
     setActiveSection(section)
     setSelectedProject(null)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
   const handleProjectClick = useCallback((item: Project | Hackathon) => {
@@ -39,7 +38,6 @@ export default function Home() {
     setSelectedProject(null)
   }, [])
 
-  const categories = ["All", "Robotics", "AI", "Ideas", "Hackathons"]
   const sortedProjects = [...projects].sort((a, b) => b.year.localeCompare(a.year))
   const sortedHackathons = [...hackathons].sort((a, b) => b.year.localeCompare(a.year))
 
@@ -52,11 +50,11 @@ export default function Home() {
       {activeSection === "home" && (
         <div className="mx-4 lg:mx-auto max-w-7xl animate-in fade-in duration-700">
           <HeroBanner
-            projects={projects.slice(0, 4)}
+            projects={sortedProjects.slice(0, 4)}
             onProjectClick={handleProjectClick}
           />
           <ProjectRow
-            title="Recently Added"
+            title="Latest Projects"
             projects={sortedProjects.slice(0, 3)}
             onProjectClick={handleProjectClick}
             bgImage="/images/abstract-tech.avif"
@@ -81,13 +79,13 @@ export default function Home() {
 
       {/* Projects Section (Unified Layout) */}
       {activeSection === "projects" && (
-        <div className="animate-in fade-in duration-700">
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
           <ProjectGallery onProjectClick={handleProjectClick} />
         </div>
       )}
 
       {activeSection === "hackathons" && (
-        <div className="animate-in fade-in duration-700">
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
           <HackathonsSection onSelectHackathon={handleProjectClick} />
         </div>
       )}
