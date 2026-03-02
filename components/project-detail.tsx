@@ -3,6 +3,7 @@
 import { ArrowLeft, Play, FileText, Download, Github } from "lucide-react"
 import Image from "next/image"
 import type { Project, Hackathon } from "@/lib/data"
+import { getYouTubeVideoId, isYouTubeUrl } from "@/lib/utils"
 
 interface ProjectDetailProps {
   project: Project | Hackathon
@@ -143,18 +144,26 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Primary Visual: Certificate for Hackathons, Main Image for Projects */}
-            <div className="relative aspect-[16/9] lg:aspect-[14/10] rounded-xl overflow-hidden border border-border/60 group bg-card/20 backdrop-blur-sm">
-              <Image
-                src={isHackathon ? project.certificate : (project.detailImage || project.image)}
-                alt={isHackathon ? "Certificate" : "Project Preview"}
-                fill
-                className={`${isHackathon ? "object-contain p-4" : "object-contain"} group-hover:scale-[1.02] transition-transform duration-700`}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute top-4 left-4">
-                <span className="px-2 py-1 font-mono text-[8px] tracking-[0.2em] bg-primary/20 text-primary border border-primary/30 rounded-sm">
-                  {isHackathon ? "OFFICIAL_CERTIFICATE" : "SYSTEM_PREVIEW"}
-                </span>
+<div className="flex flex-col">
+              <div className="p-4">
+                <h4 className="font-mono text-sm text-foreground mb-2 flex items-center gap-2">
+                  <Play className="w-4 h-4 text-primary" />
+                  AVAILABLE_ASSETS
+                </h4>
+              </div>
+              <div className="relative aspect-[16/9] lg:aspect-[14/10] rounded-xl overflow-hidden border border-border/60 group bg-card/20 backdrop-blur-sm">
+                <Image
+                  src={isHackathon ? project.certificate : (project.detailImage || project.image)}
+                  alt={isHackathon ? "Certificate" : "Project Preview"}
+                  fill
+                  className={`${isHackathon ? "object-contain p-4" : "object-contain"} group-hover:scale-[1.02] transition-transform duration-700`}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-2 py-1 font-mono text-[8px] tracking-[0.2em] bg-primary/20 text-primary border border-primary/30 rounded-sm">
+                    {isHackathon ? "OFFICIAL_CERTIFICATE" : "SYSTEM_PREVIEW"}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -173,14 +182,26 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
                 <div className="flex flex-col gap-3">
                   {project.demoVideo ? (
-                    <div className="rounded-lg overflow-hidden border border-primary/20 bg-black/40 shadow-inner">
-                      <video
-                        src={project.demoVideo}
-                        controls
-                        className="w-full aspect-video"
-                      >
-                        Your browser does not support the video tag.
-                      </video>
+                    <div className="rounded-lg overflow-hidden border border-primary/20 bg-black/40 shadow-inner aspect-[14/10]">
+                      {isYouTubeUrl(project.demoVideo) ? (
+                        <iframe
+                          width="100%"
+                          src={`https://www.youtube.com/embed/${getYouTubeVideoId(project.demoVideo)}`}
+                          title="Project Demo"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full"
+                        />
+                      ) : (
+                        <video
+                          src={project.demoVideo}
+                          controls
+                          className="w-full h-full object-cover"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
                     </div>
                   ) : project.demoPdf ? (
                     <a

@@ -135,12 +135,12 @@ export function SkillsSection() {
             <div className="space-y-3 pt-2">
               <div className="flex items-center justify-between text-[11px] font-mono">
                 <span className="text-muted-foreground">Solved</span>
-                <span className="text-foreground">100+ Problems</span>
+                <span className="text-foreground"> Problems</span>
               </div>
               <div className="w-full h-1 bg-muted/20 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-[#F7931A] to-[#FFA116]"
-                  style={{ width: "45%" }}
+                  style={{ width: "1%" }}
                 />
               </div>
               <div className="flex items-center justify-center gap-2 mt-4 text-[10px] font-mono text-primary opacity-0 group-hover:opacity-100 transition-opacity">
@@ -180,7 +180,7 @@ export function SkillsSection() {
                 <span className="text-[#2EC866]">Certified</span>
               </div>
               <div className="w-full h-1 bg-muted/20 rounded-full overflow-hidden">
-                <div className="h-full bg-[#2EC866]" style={{ width: "75%" }} />
+                <div className="h-full bg-[#2EC866]" style={{ width: "35%" }} />
               </div>
               <div className="flex items-center justify-center gap-2 mt-4 text-[10px] font-mono text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                 <span>VIEW PROFILE</span>
