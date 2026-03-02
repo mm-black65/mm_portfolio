@@ -52,9 +52,9 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
         </button>
 
         {/* Navigation links */}
-        <ul className="hidden md:flex items-center gap-4">
+        <ul className="flex items-center gap-4 overflow-x-auto md:overflow-visible whitespace-nowrap py-2">
           {navItems.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} className="flex-shrink-0">
               <button
                 onClick={() => onNavigate(item.id)}
                 onMouseEnter={() => setHoveredItem(item.id)}
