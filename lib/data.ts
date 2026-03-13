@@ -1,4 +1,4 @@
-export type Tag = "AI" | "IoT" | "Robotics" | "ML" | "CV" | "NLP" | "Embedded" | "Cloud" | "Prompt Engineering" | "Web Development" | "OSDC"
+export type Tag = "AI" | "IoT" | "Robotics" | "ML" | "CV" | "NLP" | "Embedded" | "Cloud" | "Prompt Engineering" | "Web Development" | "OSDC" | "Mini Project"
 
 export interface Project {
     id: string
@@ -7,7 +7,7 @@ export interface Project {
     tags: Tag[]
     image: string
     detailImage?: string
-    category: "projects" | "ideas"
+    category: "projects" | "ideas" | "mini project"
     demoVideo?: string
     demoPdf?: string
     futureScope?: string[]
@@ -38,6 +38,14 @@ export const certifications: Certification[] = [
         year: "2026",
         credentialUrl: "#",
         image: "/images/certificates/emb_nielit.png",
+    },
+         {
+        id: "cert-completion",
+        title: "Machine Learning using Python",
+        issuer: "NIELIT",
+        year: "2026",
+        credentialUrl: "#",
+        image: "/images/certificates/ML.png",
     },
     {
         id: "cert-emb-simpli",
@@ -81,12 +89,13 @@ export const certifications: Certification[] = [
     },
     {
         id: "cert-internship",
-        title: "Data Analytics Internship",
+        title: "Data Science Internship",
         issuer: "Finsentsis",
         year: "2026",
         credentialUrl: "#",
         image: "/images/certificates/ff.png",
     },
+
 
 ]
 
@@ -95,10 +104,10 @@ export const projects: Project[] = [
         id: "Autmatic Light Control System",
         title: "Smart RGB LED System using ESP32",
         description: "The Advanced Smart RGB LED System is an intelligent lighting system built using an ESP32 microcontroller that automatically controls a light based on environmental conditions. It uses a PIR motion sensor to detect motion and an LDR light sensor to check ambient brightness. When motion is detected in a dark environment, the system switches ON a light via a relay and uses an RGB LED to indicate system status through different colors",
-        tags: ["Embedded", "IoT"],
+        tags: ["Embedded", "IoT", "Mini Project"],
         image: "/images/s3.png",
         detailImage: "/images/pro/ll.png",
-        category: "projects",
+        category: "mini project",
         year: "2026",
         github: "https://github.com/mm-black65/Advanced-Smart-RGB-LED-System-using-ESP32.git",
         demoVideo: "https://youtube.com/shorts/ZYl1fGeHEUk?feature=share",
@@ -110,10 +119,10 @@ export const projects: Project[] = [
         id: "smart-trash-bin",
         title: "Smart Trash Bin",
         description: "An automatic smart trash bin built with Arduino that opens the lid when a hand is detected using an ultrasonic sensor, displays status on an OLED screen, and plays a short Mario tune via a buzzer. The lid then closes after a delay, making garbage disposal touchless and fun.",
-        tags: ["IoT", "Embedded"],
+        tags: ["IoT", "Embedded", "Mini Project"],
         image: "/images/s6.png",
         detailImage: "/images/pro/stp.jpeg",
-        category: "projects",
+        category: "mini project",
         year: "2026",
         github: "https://github.com/mm-black65/Smart-Trash-Bin.git",
         demoVideo: "https://youtube.com/shorts/47OPjZ_f15A?feature=share",
@@ -140,10 +149,10 @@ export const projects: Project[] = [
         id: "agentic-ai",
         title: "Hackmate(Workshop Project)",
         description: "Hackmate is a Python-based AI project focused on building a multi-agent AI system (a group of AI agents that coordinate to perform tasks). The codebase includes different agents and tools that work together in an agentic architecture, enabling autonomous task execution and coordination — useful for AI workflows, automation, and intelligent decision-making.",
-        tags: ["Robotics", "AI", "Embedded"],
+        tags: ["Robotics", "AI", "Embedded", "Mini Project"],
         image: "/images/s2.png",
         detailImage: "/images/pro/ha.jpeg",
-        category: "projects",
+        category: "mini project",
         year: "2025",
         github: "https://github.com/mm-black65/TechBlocks_agentic_ai_MP.git",
         futureScope: ["Add More Specialized Agents :, Include task-specific agents (e.g., data processing, analytics, automation).", "Web UI / Dashboard"],

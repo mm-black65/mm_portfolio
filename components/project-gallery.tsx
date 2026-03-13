@@ -147,13 +147,14 @@ interface ProjectGalleryProps {
 
 export function ProjectGallery({ onProjectClick }: ProjectGalleryProps) {
     const [activeCategory, setActiveCategory] = useState("All")
-    const categories = ["All", "Robotics", "AI", "Ideas"]
+    const categories = ["All", "Robotics", "AI", "Ideas", "Mini Project"]
 
     // Filter projects based on category selection
     const filteredProjects = useMemo(() => {
         return projects.filter((p) => {
             if (activeCategory === "All") return true
             if (activeCategory === "Ideas") return p.category === "ideas"
+            if (activeCategory === "Mini Project") return p.category === "mini project"
             if (activeCategory === "Robotics") return p.tags.includes("Robotics")
             if (activeCategory === "AI")
                 return (
@@ -191,7 +192,7 @@ export function ProjectGallery({ onProjectClick }: ProjectGalleryProps) {
             {/* Aesthetic Faded Background Image */}
             <div
                 className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.05] pointer-events-none bg-center bg-cover bg-no-repeat hidden dark:block"
-                style={{ backgroundImage: "url('/images/glowing-squares.avif')" }}
+                style={{ backgroundImage: "url('/images/project_image_bg.jpg')" }}
             />
             <div className="absolute inset-0 z-0 bg-background/50 dark:bg-gradient-to-b dark:from-background/80 dark:via-background/95 dark:to-background pointer-events-none" />
 

@@ -171,7 +171,7 @@ export function HackathonsSection({ onSelectHackathon }: HackathonsSectionProps)
             {/* Aesthetic Faded Background Image */}
             <div
                 className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.05] pointer-events-none bg-center bg-cover bg-no-repeat hidden dark:block"
-                style={{ backgroundImage: "url('/images/blueprint.jpg')" }}
+                style={{ backgroundImage: "url('/images/hack_bg.jpg')" }}
             />
             <div className="absolute inset-0 z-0 bg-background/50 dark:bg-gradient-to-b dark:from-background/80 dark:via-background/95 dark:to-background pointer-events-none" />
 
