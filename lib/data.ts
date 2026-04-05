@@ -101,6 +101,21 @@ export const certifications: Certification[] = [
 ]
 
 export const projects: Project[] = [
+     {
+        id: "ml",
+        title: "Customer Segmentation using K-Means Clustering",
+        overview: "A machine learning project that segments customers into distinct groups using K-Means clustering algorithm to identify patterns in customer data for targeted marketing and personalized strategies.",
+        description: "This project implements customer segmentation using the K-Means clustering algorithm in Python. It analyzes customer datasets to group similar customers based on key features such as purchase history, demographics, spending patterns, and behavioral data. The implementation includes comprehensive data preprocessing, feature scaling, optimal cluster determination using the elbow method, model training and evaluation, and interactive visualizations of the resulting customer segments. or data manipulation, matplotlib and seaborn for data visualization",
+        tags: ["Data Science", "ML", "Mini Project"],
+        image: "/images/market.jpg",
+        detailImage: "/images/pro/market-1.png",
+        category: "mini project",
+        year: "2026",
+        github: "https://github.com/mm-black65/Customer-Segmentation-.git",
+        demoVideo: "https://youtu.be/vIbZTGPx4tg",
+        futureScope: ["Use advanced clustering algorithms (DBSCAN, Hierarchical)", "Improve visualization with interactive dashboards", "Apply on real-world business datasets"],
+        challenges: ["Selecting optimal number of clusters", "Interpreting cluster results meaningfully", "Handling non-numeric data during analysis","Understanding unsupervised learning workflow"],
+    },
         {
         id: "ml",
         title: "Iris Flower Classifier",
@@ -170,7 +185,7 @@ export const projects: Project[] = [
         title: "Hackmate(Workshop Project)",
         overview: "A Python-based multi-agent AI system for autonomous task execution and coordination.",
         description: "Hackmate is a Python project that implements a multi-agent AI system. It features coordinated AI agents that work together to perform tasks autonomously. The system includes various agents and tools designed for AI workflows, automation, and intelligent decision-making. Built as part of a workshop project.",
-        tags: ["Robotics", "AI", "Embedded", "Mini Project"],
+        tags: ["Robotics", "AI", "Mini Project"],
         image: "/images/s2.png",
         detailImage: "/images/pro/ha.jpeg",
         category: "mini project",
@@ -189,7 +204,7 @@ export const hackathons: Hackathon[] = [
         title: "CampusVerse - Your Campus Partner ",
         overview: "A 24-hour hackathon project creating a comprehensive campus management system with AI and CV integration.",
         description: "CampusVerse is a campus management system developed during a 24-hour hackathon. It streamlines administrative tasks, enhances student engagement, and provides real-time campus information. The project incorporates prompt engineering, computer vision, AI, and OSDC technologies. Features include real-time location tracking and communication systems. Built with a focus on scalability and user experience.",
-        tags: ["Prompt Engineering", "CV", "AI", "OSDC"],
+        tags: ["Prompt Engineering", "AI", "OSDC"],
         image: "/images/hack/cc.png",
         year: "2025",
         github: "https://github.com/mm-black65/campusverse1.0.git",
@@ -203,7 +218,7 @@ export const hackathons: Hackathon[] = [
         title: "HeyBuddy AI!",
         overview: "An eco-friendly application for measuring, tracking, and reducing daily carbon emissions with personalized recommendations.",
         description: "HeyBuddy AI is an application designed to help users track and reduce their carbon footprint. It analyzes lifestyle activities including transportation, energy usage, and consumption habits to provide personalized suggestions for sustainable living. The app combines IoT, machine learning, and cloud technologies to deliver actionable environmental insights.",
-        tags: ["IoT", "ML", "Cloud"],
+        tags: ["ML", "Cloud"],
         image: "/images/hack/buh.png",
         year: "2026",
         github: "https://github.com/mmblack65/treehacks-airguard",
