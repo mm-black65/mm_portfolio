@@ -51,7 +51,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
               {project.title}
             </h1>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed pl-6 border-l-2 border-primary/40 max-w-2xl">
-              {project.description}
+              {project.overview || project.description}
             </p>
           </div>
 

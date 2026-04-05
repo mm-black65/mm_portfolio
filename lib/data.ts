@@ -120,8 +120,8 @@ export const projects: Project[] = [
     {
         id: "Autmatic Light Control System",
         title: "Smart RGB LED System using ESP32",
-        overview: "An IoT lighting system with ESP32 microcontroller that uses motion and light sensors for automated illumination control.",
-        description: "This project features an intelligent lighting system built with ESP32 microcontroller. It incorporates PIR motion sensor for motion detection and LDR light sensor for ambient brightness monitoring. The system activates lighting via relay when motion is detected in low-light conditions and displays status through RGB LED indicators. Components include ESP32 Dev Module, PIR Motion Sensor, LDR Light Sensor, RGB LED, and Relay Module.",
+        overview: "A motion- and light-aware IoT lighting system that adjusts illumination automatically and provides status through RGB feedback.",
+        description: "A compact ESP32-based lighting solution that responds to both movement and ambient brightness. The system uses a PIR sensor to detect motion and an LDR sensor to measure light levels, then controls a relay and RGB LED output based on those conditions. It is designed to activate lighting only when necessary and to indicate system state clearly using color feedback.",
         tags: ["Embedded", "IoT", "Mini Project"],
         image: "/images/s3.png",
         detailImage: "/images/pro/ll.png",
