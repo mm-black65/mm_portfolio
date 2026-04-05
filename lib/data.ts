@@ -115,7 +115,7 @@ export const projects: Project[] = [
         demoVideo: "https://youtu.be/gQgAbTLBQ40",
         futureScope: ["Improve model performance by using advanced algorithms such as Random Forest and Support Vector Machines.", "Implement automated model selection based on performance metrics.","Enhance the user interface of the application for a more interactive and visually appealing experience.","Deploy the application on cloud platforms to make it accessible online."],
         materials: ["Python programming", "Jupyter Notebook", "Joblib", "Streamlit", "Scikit-learn library", "NumPy and Pandas"],
-        challenges: ["Classification Accuracy", "Overfitting", "Improper hyperparameter tuning","Improper hyperparameter tuning","Notebook app integration"],
+        challenges: ["Classification Accuracy", "Overfitting", "Improper hyperparameter tuning","Notebook app integration"],
     },
     {
         id: "Autmatic Light Control System",
