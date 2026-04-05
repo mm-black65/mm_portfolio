@@ -107,7 +107,7 @@ export const projects: Project[] = [
         overview: "A machine learning project that segments customers into distinct groups using K-Means clustering algorithm to identify patterns in customer data for targeted marketing and personalized strategies.",
         description: "This project implements customer segmentation using the K-Means clustering algorithm in Python. It analyzes customer datasets to group similar customers based on key features such as purchase history, demographics, spending patterns, and behavioral data. The implementation includes comprehensive data preprocessing, feature scaling, optimal cluster determination using the elbow method, model training and evaluation, and interactive visualizations of the resulting customer segments. or data manipulation, matplotlib and seaborn for data visualization",
         tags: ["Data Science", "ML", "Mini Project"],
-        image: "/images/market-1.jpg",
+        image: "/images//pro/market-1.jpg",
         detailImage: "/images/pro/market.png",
         category: "mini project",
         year: "2026",
