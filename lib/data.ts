@@ -3,6 +3,7 @@ export type Tag = "AI" | "IoT" | "Robotics" | "ML" | "CV" | "NLP" | "Embedded" |
 export interface Project {
     id: string
     title: string
+    overview?: string
     description: string
     tags: Tag[]
     image: string
@@ -103,7 +104,8 @@ export const projects: Project[] = [
         {
         id: "ml",
         title: "Iris Flower Classifier",
-        description: "This project focuses on building a machine learning-based classification system to identify Iris flower species using their physical characteristics such as sepal length, sepal width, petal length, and petal width. The project begins with data analysis and visualization to understand feature relationships within the dataset. Multiple machine learning models, including K-Nearest Neighbors (KNN), Logistic Regression, and Decision Tree, are implemented and evaluated. A comparison of models is performed using accuracy and classification metrics to determine the best-performing algorithm. Hyperparameter tuning is applied to improve model performance, especially for the KNN model by selecting the optimal value of K. Finally, the trained models are integrated into an interactive web application built using Streamlit, allowing users to input flower measurements and receive real-time predictions. This project demonstrates the complete machine learning workflow, including data preprocessing, model training, evaluation, and deployment.",
+        overview: "A machine learning classifier for Iris flower species using sepal and petal measurements, with comparative algorithm analysis and Streamlit web interface.",
+        description: "This project implements a machine learning classification system for Iris flower species identification. It includes exploratory data analysis and visualization of feature relationships in the dataset. Multiple algorithms are implemented and evaluated, including KNN, Logistic Regression, and Decision Trees, with hyperparameter tuning for optimal performance. The system features a real-time web application built with Streamlit for user input and predictions. Technologies used include Python, scikit-learn, NumPy, Pandas, and Jupyter Notebook.",
         tags: ["ML", "Data Science", "Mini Project"],
         image: "/images/pro/iris-s.jpg",
         detailImage: "/images/pro/iris.png",
@@ -118,7 +120,8 @@ export const projects: Project[] = [
     {
         id: "Autmatic Light Control System",
         title: "Smart RGB LED System using ESP32",
-        description: "The Advanced Smart RGB LED System is an intelligent lighting system built using an ESP32 microcontroller that automatically controls a light based on environmental conditions. It uses a PIR motion sensor to detect motion and an LDR light sensor to check ambient brightness. When motion is detected in a dark environment, the system switches ON a light via a relay and uses an RGB LED to indicate system status through different colors",
+        overview: "An IoT lighting system with ESP32 microcontroller that uses motion and light sensors for automated illumination control.",
+        description: "This project features an intelligent lighting system built with ESP32 microcontroller. It incorporates PIR motion sensor for motion detection and LDR light sensor for ambient brightness monitoring. The system activates lighting via relay when motion is detected in low-light conditions and displays status through RGB LED indicators. Components include ESP32 Dev Module, PIR Motion Sensor, LDR Light Sensor, RGB LED, and Relay Module.",
         tags: ["Embedded", "IoT", "Mini Project"],
         image: "/images/s3.png",
         detailImage: "/images/pro/ll.png",
@@ -133,7 +136,8 @@ export const projects: Project[] = [
     {
         id: "smart-trash-bin",
         title: "Smart Trash Bin",
-        description: "An automatic smart trash bin built with Arduino that opens the lid when a hand is detected using an ultrasonic sensor, displays status on an OLED screen, and plays a short Mario tune via a buzzer. The lid then closes after a delay, making garbage disposal touchless and fun.",
+        overview: "An Arduino-based smart trash bin with ultrasonic sensing, OLED display, and audio feedback for touchless operation.",
+        description: "This project creates an automatic smart trash bin using Arduino. It features ultrasonic sensor for hand detection to open the lid automatically, OLED display for status information, and buzzer for audio feedback including Mario tunes. The lid closes after a set delay. Hardware includes Arduino Uno, Ultrasonic Sensor (HC-SR04), Servo Motor, Buzzer, and OLED Display (SSD1306 I2C).",
         tags: ["IoT", "Embedded", "Mini Project"],
         image: "/images/s6.png",
         detailImage: "/images/pro/stp.jpeg",
@@ -148,7 +152,8 @@ export const projects: Project[] = [
     {
         id: "smart-house",
         title: "HomeGuardX",
-        description: "HomeGuardX is an IoT-based smart home automation and security ecosystem built using ESP32. It integrates temperature control, smart lighting, intrusion detection, door automation, and security mode management to simulate real-world smart home systems",
+        overview: "An IoT smart home ecosystem with ESP32, featuring security, automation, and environmental controls.",
+        description: "HomeGuardX is an IoT-based smart home platform built with ESP32 microcontroller. It includes temperature control, smart lighting, intrusion detection, door automation, and security mode management. The system integrates multiple sensors including temperature sensor, LDR, IR motion sensor, and servo motor for door control. Additional components are LEDs and buzzer for alerts. Developed using Arduino IDE and Wokwi Simulator.",
         tags: ["IoT", "ML", "Cloud", "Embedded"],
         image: "/images/s1.png",
         detailImage: "/images/pro/hxp.jpeg",
@@ -163,7 +168,8 @@ export const projects: Project[] = [
     {
         id: "agentic-ai",
         title: "Hackmate(Workshop Project)",
-        description: "Hackmate is a Python-based AI project focused on building a multi-agent AI system (a group of AI agents that coordinate to perform tasks). The codebase includes different agents and tools that work together in an agentic architecture, enabling autonomous task execution and coordination — useful for AI workflows, automation, and intelligent decision-making.",
+        overview: "A Python-based multi-agent AI system for autonomous task execution and coordination.",
+        description: "Hackmate is a Python project that implements a multi-agent AI system. It features coordinated AI agents that work together to perform tasks autonomously. The system includes various agents and tools designed for AI workflows, automation, and intelligent decision-making. Built as part of a workshop project.",
         tags: ["Robotics", "AI", "Embedded", "Mini Project"],
         image: "/images/s2.png",
         detailImage: "/images/pro/ha.jpeg",
@@ -181,7 +187,8 @@ export const hackathons: Hackathon[] = [
     {
         id: "hack-your-campus",
         title: "CampusVerse - Your Campus Partner ",
-        description: "24-hour hackathon project: A comprehensive campus management system designed to streamline administrative tasks, enhance student engagement, and provide real-time campus information.",
+        overview: "A 24-hour hackathon project creating a comprehensive campus management system with AI and CV integration.",
+        description: "CampusVerse is a campus management system developed during a 24-hour hackathon. It streamlines administrative tasks, enhances student engagement, and provides real-time campus information. The project incorporates prompt engineering, computer vision, AI, and OSDC technologies. Features include real-time location tracking and communication systems. Built with a focus on scalability and user experience.",
         tags: ["Prompt Engineering", "CV", "AI", "OSDC"],
         image: "/images/hack/cc.png",
         year: "2025",
@@ -194,7 +201,8 @@ export const hackathons: Hackathon[] = [
     {
         id: "hack-air-quality",
         title: "HeyBuddy AI!",
-        description: "HeyBuddy!! AI is an innovative eco-friendly application designed to help users measure, track, and reduce their daily carbon emissions. The app analyzes lifestyle activities such as transportation, energy usage, and consumption habits, then provides personalized suggestions to promote sustainable living",
+        overview: "An eco-friendly application for measuring, tracking, and reducing daily carbon emissions with personalized recommendations.",
+        description: "HeyBuddy AI is an application designed to help users track and reduce their carbon footprint. It analyzes lifestyle activities including transportation, energy usage, and consumption habits to provide personalized suggestions for sustainable living. The app combines IoT, machine learning, and cloud technologies to deliver actionable environmental insights.",
         tags: ["IoT", "ML", "Cloud"],
         image: "/images/hack/buh.png",
         year: "2026",
@@ -208,7 +216,8 @@ export const hackathons: Hackathon[] = [
     {
         id: "buddyai",
         title: "OkOkay AI",
-        description: "OkOkay AI is an AI-powered assistant designed to improve access to opportunities, information, and public resources. It acts as a smart guide that helps users discover scholarships, jobs, government schemes, and community services in a simple and personalized way.",
+        overview: "An AI-powered assistant for accessing opportunities, information, and public resources through personalized recommendations.",
+        description: "OkOkay AI is an AI-powered assistant that helps users discover scholarships, jobs, government schemes, and community services. It provides personalized guidance and recommendations based on user needs. The platform features web development, AI integration, and cloud technologies for a seamless user experience.",
         tags: ["AI", "ML", "Web Development", "Cloud"],
         image: "/images/hack/ok.png",
         year: "2026",
@@ -222,7 +231,8 @@ export const hackathons: Hackathon[] = [
     {
         id: "zephyr_ai",
         title: "Zephyr AI",
-        description: "Zephyr AI : Your AirPal is an AI-powered air quality assistance platform designed to provide personalized environmental insights rather than only city-wide pollution statistics. Traditional AQI systems show generalized data, but Zephyr AI focuses on how air quality affects individuals based on their location, health sensitivity, and daily activities.",
+        overview: "An AI-powered air quality platform providing personalized environmental insights based on location and health factors.",
+        description: "Zephyr AI is an air quality assistance platform that offers personalized environmental insights beyond traditional city-wide AQI statistics. It considers individual location, health sensitivity, and daily activities to provide relevant air quality information. The platform integrates AI, machine learning, web development, and cloud technologies for comprehensive environmental monitoring and user guidance.",
         tags: ["AI", "ML", "Web Development", "Cloud", "Prompt Engineering"],
         image: "/images/hack/zz.png",
         year: "2026",

@@ -45,7 +45,7 @@ export function AboutSection() {
               My technical journey is rooted in real-time systems—from architecting smart automation and RFID security to engineering robotics prototypes. I focus on the precision of hardware: managing GPIO configurations, interrupt handling, and memory optimization to build efficient, scalable devices.
             </p>
             <p className="text-sm text-muted-foreground dark:text-[#BDE0FE]/80 leading-relaxed">
-              Bridging Data & Hardware: Currently, as a Data Analysis Intern, I am expanding my stack with Python and MySQL. I am fascinated by the intersection of local embedded sensing and global data analytics, aiming to build intelligent systems that don't just act, but learn.
+              Bridging Data & Hardware: Currently, as a Data Science Intern, I am expanding my stack with Python and MySQL. I am fascinated by the intersection of local embedded sensing and global data analytics, aiming to build intelligent systems that don't just act, but learn.
             </p>
             <p className="text-sm text-muted-foreground dark:text-[#BDE0FE]/80 leading-relaxed">
               Beyond the Logic: When I’m not debugging circuits or optimizing memory, I’m usually behind a camera lens. My knack for photography fuels my attention to detail—whether I’m perfecting a circuit board layout or designing the visual flow of a portfolio.
@@ -125,7 +125,7 @@ export function AboutSection() {
           <div className="space-y-0">
             {[
               { year: "Apr'29", event: "Expected Graduation - B.TECH Robotics & AI" },
-              { year: "Feb'26", event: "Data Analysis Intern - Finenstics" },
+              { year: "Feb'26", event: "Data Science Intern - Finenstics" },
               { year: "Jul'25", event: "Started Robotics Engineering at Jaypee Institute of Information Technology" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4 pb-4">
