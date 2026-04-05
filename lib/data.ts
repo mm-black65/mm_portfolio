@@ -114,6 +114,7 @@ export const projects: Project[] = [
         github: "https://github.com/mm-black65/Customer-Segmentation-.git",
         demoVideo: "https://youtu.be/vIbZTGPx4tg",
         futureScope: ["Use advanced clustering algorithms (DBSCAN, Hierarchical)", "Improve visualization with interactive dashboards", "Apply on real-world business datasets"],
+        materials: ["Python programming", "Jupyter Notebook", "Joblib", "Streamlit", "Scikit-learn library", "NumPy and Pandas"],
         challenges: ["Selecting optimal number of clusters", "Interpreting cluster results meaningfully", "Handling non-numeric data during analysis","Understanding unsupervised learning workflow"],
     },
         {
