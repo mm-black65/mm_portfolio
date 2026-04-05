@@ -1,4 +1,4 @@
-export type Tag = "AI" | "IoT" | "Robotics" | "ML" | "CV" | "NLP" | "Embedded" | "Cloud" | "Prompt Engineering" | "Web Development" | "OSDC" | "Mini Project"
+export type Tag = "AI" | "IoT" | "Robotics" | "ML" | "CV" | "NLP" | "Embedded" | "Cloud" | "Prompt Engineering" | "Web Development" | "OSDC" | "Mini Project" | "Data Science"
 
 export interface Project {
     id: string
@@ -100,6 +100,21 @@ export const certifications: Certification[] = [
 ]
 
 export const projects: Project[] = [
+        {
+        id: "ml",
+        title: "Iris Flower Classifier",
+        description: "This project focuses on building a machine learning-based classification system to identify Iris flower species using their physical characteristics such as sepal length, sepal width, petal length, and petal width. The project begins with data analysis and visualization to understand feature relationships within the dataset. Multiple machine learning models, including K-Nearest Neighbors (KNN), Logistic Regression, and Decision Tree, are implemented and evaluated. A comparison of models is performed using accuracy and classification metrics to determine the best-performing algorithm. Hyperparameter tuning is applied to improve model performance, especially for the KNN model by selecting the optimal value of K. Finally, the trained models are integrated into an interactive web application built using Streamlit, allowing users to input flower measurements and receive real-time predictions. This project demonstrates the complete machine learning workflow, including data preprocessing, model training, evaluation, and deployment.",
+        tags: ["ML", "Data Science", "Mini Project"],
+        image: "/images/pro/iris-s.jpg",
+        detailImage: "/images/pro/iris.png",
+        category: "mini project",
+        year: "2026",
+        github: "https://github.com/mm-black65/Iris-Flower-Classification.git",
+        demoVideo: "https://youtu.be/gQgAbTLBQ40",
+        futureScope: ["Improve model performance by using advanced algorithms such as Random Forest and Support Vector Machines.", "Implement automated model selection based on performance metrics.","Enhance the user interface of the application for a more interactive and visually appealing experience.","Deploy the application on cloud platforms to make it accessible online."],
+        materials: ["Python programming", "Jupyter Notebook", "Joblib", "Streamlit", "Scikit-learn library", "NumPy and Pandas"],
+        challenges: ["Classification Accuracy", "Overfitting", "Improper hyperparameter tuning","Improper hyperparameter tuning","Notebook app integration"],
+    },
     {
         id: "Autmatic Light Control System",
         title: "Smart RGB LED System using ESP32",
