@@ -147,23 +147,20 @@ interface ProjectGalleryProps {
 
 export function ProjectGallery({ onProjectClick }: ProjectGalleryProps) {
     const [activeCategory, setActiveCategory] = useState("All")
-    const categories = ["All", "Robotics", "AI", "Ideas", "Mini Project"]
+    const categories = useMemo(() => {
+        const years = Array.from(new Set(projects.map((p) => p.year))).sort((a, b) => b.localeCompare(a))
+        return ["All", "Robotics", "AI", "ML", "Mini Project", ...years]
+    }, [])
 
     // Filter projects based on category selection
     const filteredProjects = useMemo(() => {
         return projects.filter((p) => {
             if (activeCategory === "All") return true
-            if (activeCategory === "Ideas") return p.category === "ideas"
             if (activeCategory === "Mini Project") return p.category === "mini project"
             if (activeCategory === "Robotics") return p.tags.includes("Robotics")
-            if (activeCategory === "AI")
-                return (
-                    p.tags.includes("AI") ||
-                    p.tags.includes("ML") ||
-                    p.tags.includes("CV") ||
-                    p.tags.includes("NLP")
-                )
-            return true
+            if (activeCategory === "AI") return p.tags.includes("AI") || p.tags.includes("CV") || p.tags.includes("NLP")
+            if (activeCategory === "ML") return p.tags.includes("ML")
+            return p.year === activeCategory
         })
     }, [activeCategory])
 
@@ -171,13 +168,21 @@ export function ProjectGallery({ onProjectClick }: ProjectGalleryProps) {
     const groupedProjects = useMemo(() => {
         const groups: Record<string, Project[]> = {}
 
-        const items = [...filteredProjects].reverse()
-        items.forEach((p) => {
-            const year = p.year
+        const items: { project: Project; index: number }[] = filteredProjects
+            .map((project, index) => ({ project, index }))
+            .sort((a, b) => {
+                if (a.project.year !== b.project.year) {
+                    return b.project.year.localeCompare(a.project.year)
+                }
+                return b.index - a.index
+            })
+
+        items.forEach(({ project }) => {
+            const year = project.year
             if (!groups[year]) {
                 groups[year] = []
             }
-            groups[year].push(p)
+            groups[year].push(project)
         })
 
         return groups

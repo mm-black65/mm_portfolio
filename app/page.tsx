@@ -55,7 +55,7 @@ export default function Home() {
           />
           <ProjectRow
             title="Latest Projects"
-            projects={sortedProjects.slice(0, 3)}
+            projects={sortedProjects.slice(0, 5)}
             onProjectClick={handleProjectClick}
             bgImage="/images/abstract-tech.avif"
           />
