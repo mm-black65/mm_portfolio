@@ -101,6 +101,22 @@ export const certifications: Certification[] = [
 ]
 
 export const projects: Project[] = [
+    {
+        id: "ml",
+        title: "Wine Classification using Machine Learning (SVM Focus)",
+        overview: " A machine learning project that classifies wine types based on chemical properties using Support Vector Machines (SVM) and other algorithms, with an interactive Streamlit application for real-time predictions.",
+        description: "Developed a machine learning-based wine classification system using multiple algorithms including SVM, with hyperparameter tuning and cross-validation. Built an interactive Streamlit application for real-time predictions, demonstrating end-to-end ML workflow from model training to deployment.",
+        tags: ["Data Science", "ML", "Mini Project"],
+        image: "/images//pro/wine.png",
+        detailImage: "/images/pro/wine-1.png",
+        category: "mini project",
+        year: "2026",
+        github: "https://github.com/mm-black65/Wine-Classification-using-Machine-Learning.git",
+        demoVideo: "https://youtu.be/KyXRK43HZhQ",
+        futureScope: ["Use advanced models (Random Forest, Boosting)", "Improve visualization", "Deploy model as web app","Use real-world datasets"],
+        materials: ["Python programming", "Jupyter Notebook", "Joblib", "Streamlit", "Scikit-learn library", "NumPy and Pandas"],
+        challenges: ["Model selection ", "Hyperparameter tuning", "Scaling requirement  ","Understanding cross-validation workflow"],
+    },
      {
         id: "ml",
         title: "Customer Segmentation using K-Means Clustering",
