@@ -102,7 +102,7 @@ export const certifications: Certification[] = [
 
 export const projects: Project[] = [
     {
-        id: "ml",
+        id: "ml-wine",
         title: "Wine Classification using Machine Learning (SVM Focus)",
         overview: " A machine learning project that classifies wine types based on chemical properties using Support Vector Machines (SVM) and other algorithms, with an interactive Streamlit application for real-time predictions.",
         description: "Developed a machine learning-based wine classification system using multiple algorithms including SVM, with hyperparameter tuning and cross-validation. Built an interactive Streamlit application for real-time predictions, demonstrating end-to-end ML workflow from model training to deployment.",
@@ -118,7 +118,7 @@ export const projects: Project[] = [
         challenges: ["Model selection ", "Hyperparameter tuning", "Scaling requirement  ","Understanding cross-validation workflow"],
     },
      {
-        id: "ml",
+        id: "ml-cluster",
         title: "Customer Segmentation using K-Means Clustering",
         overview: "A machine learning project that segments customers into distinct groups using K-Means clustering algorithm to identify patterns in customer data for targeted marketing and personalized strategies.",
         description: "This project implements customer segmentation using the K-Means clustering algorithm in Python. It analyzes customer datasets to group similar customers based on key features such as purchase history, demographics, spending patterns, and behavioral data. The implementation includes comprehensive data preprocessing, feature scaling, optimal cluster determination using the elbow method, model training and evaluation, and interactive visualizations of the resulting customer segments. or data manipulation, matplotlib and seaborn for data visualization",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
         challenges: ["Selecting optimal number of clusters", "Interpreting cluster results meaningfully", "Handling non-numeric data during analysis","Understanding unsupervised learning workflow"],
     },
         {
-        id: "ml",
+        id: "ml-iris",
         title: "Iris Flower Classifier",
         overview: "A machine learning classifier for Iris flower species using sepal and petal measurements, with comparative algorithm analysis and Streamlit web interface.",
         description: "This project implements a machine learning classification system for Iris flower species identification. It includes exploratory data analysis and visualization of feature relationships in the dataset. Multiple algorithms are implemented and evaluated, including KNN, Logistic Regression, and Decision Trees, with hyperparameter tuning for optimal performance. The system features a real-time web application built with Streamlit for user input and predictions. Technologies used include Python, scikit-learn, NumPy, Pandas, and Jupyter Notebook.",

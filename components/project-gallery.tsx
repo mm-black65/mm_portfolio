@@ -79,9 +79,9 @@ function YearRow({ year, projects, onProjectClick }: YearRowProps) {
                     className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-hide snap-x"
                     style={{ scrollbarWidth: "none" }}
                 >
-                    {projects.map((project) => (
+                    {projects.map((project, index) => (
                         <button
-                            key={project.id}
+                            key={`${project.id}-${index}`}
                             onClick={() => onProjectClick(project)}
                             className="flex-shrink-0 w-[280px] sm:w-[320px] snap-start group/card relative flex flex-col border border-border/60 rounded-xl bg-card/40 backdrop-blur-sm transition-all duration-500 hover:border-[#2E8B57] dark:hover:border-[#2E8B57] hover:bg-card/60 text-left overflow-hidden"
                             style={{ transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s, background-color 0.5s" }}

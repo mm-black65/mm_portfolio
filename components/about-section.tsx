@@ -17,7 +17,7 @@ export function AboutSection() {
         {/* Image Top Left */}
         <div className="mb-8">
           <img
-            src="/images/kk.jpg"
+            src="/image/profile.jpeg"
             alt="Mahi Ahalawat"
             className="w-40 h-40 rounded-2xl object-cover border border-border shadow-lg opacity-85 brightness-90 saturate-[0.8]"
           />
